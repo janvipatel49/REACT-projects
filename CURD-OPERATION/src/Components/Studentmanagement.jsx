@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./StudentManagement.css";
 
 const StudentManagement = () => {
-  const [data, setData] = useState([
-    { id: 1, fname: "Mark", lname: "Wood", age: 20 },
-    { id: 2, fname: "Virat", lname: "Kohli", age: 25 },
-    { id: 3, fname: "Rohit", lname: "Sharma", age: 29 },
-  ]);
+
+  // ✅ Load data from localStorage
+  const [data, setData] = useState(() => {
+    const storedData = localStorage.getItem("students");
+    return storedData
+      ? JSON.parse(storedData)
+      : [
+          { id: 1, fname: "Mark", lname: "Wood", age: 20 },
+          { id: 2, fname: "Virat", lname: "Kohli", age: 25 },
+          { id: 3, fname: "Rohit", lname: "Sharma", age: 29 },
+        ];
+  });
 
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [age, setAge] = useState("");
   const [editId, setEditId] = useState(null);
+
+  // ✅ Save data to localStorage
+  useEffect(() => {
+    localStorage.setItem("students", JSON.stringify(data));
+  }, [data]);
 
   const handleSubmit = () => {
     if (!fname || !lname || !age) {
@@ -21,7 +33,7 @@ const StudentManagement = () => {
 
     if (editId === null) {
       const newData = {
-        id: data.length + 1,
+        id: data.length ? data[data.length - 1].id + 1 : 1,
         fname,
         lname,
         age,
@@ -56,6 +68,12 @@ const StudentManagement = () => {
     setEditId(null);
   };
 
+  // ✅ Bonus: Clear all data
+  const handleClearAll = () => {
+    localStorage.removeItem("students");
+    setData([]);
+  };
+
   return (
     <div className="container">
       <h2>Student Management</h2>
@@ -86,6 +104,10 @@ const StudentManagement = () => {
 
         <button className="clear" onClick={clearForm}>
           Clear
+        </button>
+
+        <button className="clearAll" onClick={handleClearAll}>
+          Clear All
         </button>
       </div>
 
