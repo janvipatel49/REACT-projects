@@ -1,0 +1,158 @@
+/* Page Background */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f5f7fb;
+}
+
+/* Main Container */
+.container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+/* Heading */
+.container h1 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 30px;
+}
+
+/* Products Grid */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Product Card */
+.product-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.product-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+/* Product Content */
+.product-info {
+  padding: 18px;
+}
+
+.product-info h3 {
+  margin: 0;
+  color: #222;
+  font-size: 22px;
+}
+
+.product-info p {
+  color: #666;
+  font-size: 14px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.product-info .price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #6c63ff;
+}
+
+.product-info .category {
+  display: inline-block;
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* Buttons */
+.btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btns button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background: #4f46e5;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #4338ca;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* Form */
+.product-form {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+}
+
+.product-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.product-form input:focus {
+  border-color: #4f46e5;
+}
+
+.product-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #7c3aed
+  );
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.product-form button:hover {
+  opacity: 0.9;
+}
